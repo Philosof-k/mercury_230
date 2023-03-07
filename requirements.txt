@@ -1,5 +1,4 @@
 bitstring
 pyserial
 psycopg2
-pyserial
 paho-mqtt
