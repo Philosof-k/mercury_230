@@ -440,7 +440,9 @@ class Mercury230:
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
+            print(a1)
             a2 = za[lenga - 4]
+            print(a2)
             A = format(a1, 'x') + format(a2, 'x')
             voltage_A = int(A, 16) / 100
             return voltage_A
@@ -462,7 +464,9 @@ class Mercury230:
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
+            print(a1)
             a2 = za[lenga - 4]
+            print(a2)
             A = format(a1, 'x') + format(a2, 'x')
             voltage_B = int(A, 16) / 100
             return voltage_B
@@ -484,7 +488,9 @@ class Mercury230:
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
+            print(a1)
             a2 = za[lenga - 4]
+            print(a2)
             A = format(a1, 'x') + format(a2, 'x')
             voltage_C = int(A, 16) / 100
             return voltage_C
@@ -506,7 +512,9 @@ class Mercury230:
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
+            print(a1)
             a2 = za[lenga - 4]
+            print(a2)
             A = format(a1, 'x') + format(a2, 'x')
             current_A = int(A, 16) / 1000
             return current_A
@@ -528,7 +536,9 @@ class Mercury230:
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
+            print(a1)
             a2 = za[lenga - 4]
+            print(a2)
             A = format(a1, 'x') + format(a2, 'x')
             current_B = int(A, 16) / 1000
             return current_B
@@ -550,7 +560,9 @@ class Mercury230:
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
+            print(a1)
             a2 = za[lenga - 4]
+            print(a2)
             A = format(a1, 'x') + format(a2, 'x')
             current_C = int(A, 16) / 1000
             return current_C
