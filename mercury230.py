@@ -501,6 +501,7 @@ class Mercury230:
         ser.write(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
+        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             za = list(outa)
             lenga = len(za)
@@ -522,6 +523,7 @@ class Mercury230:
         ser.write(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
+        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             za = list(outa)
             lenga = len(za)
@@ -543,6 +545,7 @@ class Mercury230:
         ser.write(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
+        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             za = list(outa)
             lenga = len(za)
