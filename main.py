@@ -122,7 +122,7 @@ def cycle_read():
         Hz = mercury_234.get_frequency()
 #        Tcase = mercury_234.get_temp()
         Pcd = mercury_234.get_active_energy_current_day()
-        if abs(lUa - Ua) < 30:
+        if lUa != 'crc_false' and abs(lUa - Ua) < 30:
                 Ua = lUa
                 fooUa = False
         else:
