@@ -433,28 +433,14 @@ class Mercury230:
         ser = self.open_port(self.ipaddress1, self.ipport1)
         ser.timeout = 0.2
         ser.write(chunk)
-#        time.sleep(100 / 1000)
+
         outa = ser.read(6)
-#        print(outa)
-#        print(outa[-2:])
-#        print((outa[:-2])[-2:])
+
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-2])[-1:]
-#            print(b1)
             b2 = (outa[:-3])[-1:]
-#            print(b2)
-            b3 = b1 + b2
-#            print(b3)
-            Vint = int.from_bytes(b3, "big")
-            print(Vint)
-#            za = list(outa)
-#            lenga = len(za)
-#            a1 = (outa[:-2])[-1:]
-#            print(a1)
-#            a2 = (outa[:-3])[-1:]
-#            print(a2)
-#            A = format(a1, 'x') + format(a2, 'x')
-#            print(A)
+            bs = b1 + b2
+            Vint = int.from_bytes(bs, "big")
             voltage_A = Vint / 100
             return voltage_A
         return "crc_false"
@@ -472,14 +458,11 @@ class Mercury230:
         outa = ser.read(6)
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a1 = za[lenga - 3]
-            print(a1)
-            a2 = za[lenga - 4]
-            print(a2)
-            A = format(a1, 'x') + format(a2, 'x')
-            voltage_B = int(A, 16) / 100
+            b1 = (outa[:-2])[-1:]
+            b2 = (outa[:-3])[-1:]
+            bs = b1 + b2
+            Vint = int.from_bytes(bs, "big")
+            voltage_B = Vint / 100
             return voltage_B
         return "crc_false"
 
@@ -496,14 +479,11 @@ class Mercury230:
         outa = ser.read(6)
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a1 = za[lenga - 3]
-            print(a1)
-            a2 = za[lenga - 4]
-            print(a2)
-            A = format(a1, 'x') + format(a2, 'x')
-            voltage_C = int(A, 16) / 100
+            b1 = (outa[:-2])[-1:]
+            b2 = (outa[:-3])[-1:]
+            bs = b1 + b2
+            Vint = int.from_bytes(bs, "big")
+            voltage_C = Vint / 100
             return voltage_C
         return "crc_false"
 
