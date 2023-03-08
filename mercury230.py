@@ -555,7 +555,7 @@ class Mercury230:
             b1 = (outa[:-4])[-1:]
             print(b1)
 #            bm = 0b00111111
-            b1int = int.from_bytes(b1, "big") << 2
+            b1int = int.from_bytes(b1, "big") & 0b00111111
             print(b1int)
             b1 = b1int.to_bytes(2, 'big')
             print(b1)
