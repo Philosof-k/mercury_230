@@ -436,7 +436,10 @@ class Mercury230:
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
         print(outa)
+        print(outa[-2:])
+        print(outa[:-2])
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
+            int.from_bytes(b'\x00\x01', "big")
             za = list(outa)
             lenga = len(za)
             a1 = za[lenga - 3]
