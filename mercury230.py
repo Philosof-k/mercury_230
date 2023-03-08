@@ -393,9 +393,8 @@ class Mercury230:
         ser = self.open_port(self.ipaddress1, self.ipport1)
         ser.timeout = 0.2
         ser.write(chunk)
-#        time.sleep(100 / 1000)
-        temp = ser.read(6)
-        if temp[-2:] == self.crc16(temp[:-2])[-2:]:
+        outa = ser.read(6)
+        if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-2])[-1:]
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
