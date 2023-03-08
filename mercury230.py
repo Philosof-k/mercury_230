@@ -164,13 +164,14 @@ class Mercury230:
 #        print(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(19)
-#        print(ver)
+        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-17])[-1:]
             b2 = (outa[:-18])[-1:]
             b3 = (outa[:-15])[-1:]
             b4 = (outa[:-16])[-1:]
             bs = b1 + b2 + b3 + b4
+            print(bs)
             Pint = int.from_bytes(bs, "big")
             P = Pint / 1000
             return P
