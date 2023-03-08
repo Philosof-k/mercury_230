@@ -554,7 +554,8 @@ class Mercury230:
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-4])[-1:]
 #            bm = 0b00111111
-            b1 = int.from_bytes(b1, "big") << 2
+            b1int = int.from_bytes(b1, "big") << 2
+            b1 = b1int.to_bytes(1, 'big')
             print(b1)
             b2 = (outa[:-2])[-1:]
             print(b2)
