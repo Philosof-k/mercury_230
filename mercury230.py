@@ -165,7 +165,7 @@ class Mercury230:
 #        time.sleep(100 / 1000)
         outa = ser.read(19)
 #        print(ver)
-        if ver[-2:] == self.crc16(ver[:-2])[-2:]:
+        if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-16])[-1:]
             b2 = (outa[:-15])[-1:]
             b3 = (outa[:-18])[-1:]
