@@ -439,7 +439,7 @@ class Mercury230:
         print(outa[-2:])
         print((outa[:-2])[-2:])
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            a0 = int.from_bytes(outa[:-2], "big")
+            a0 = int.from_bytes((outa[:-2])[-2:], "big")
             print(a0)
             za = list(outa)
             lenga = len(za)
