@@ -435,27 +435,27 @@ class Mercury230:
         ser.write(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
-        print(outa)
-        print(outa[-2:])
-        print((outa[:-2])[-2:])
+#        print(outa)
+#        print(outa[-2:])
+#        print((outa[:-2])[-2:])
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-2])[-1:]
-            print(b1)
+#            print(b1)
             b2 = (outa[:-3])[-1:]
-            print(b2)
+#            print(b2)
             b3 = b1 + b2
-            print(b3)
-            a0 = int.from_bytes(b3, "big")
-            print(a0)
-            za = list(outa)
-            lenga = len(za)
-            a1 = za[lenga - 3]
-            print(a1)
-            a2 = za[lenga - 4]
-            print(a2)
-            A = format(a1, 'x') + format(a2, 'x')
-            print(A)
-            voltage_A = int(A, 16) / 100
+#            print(b3)
+            Vint = int.from_bytes(b3, "big")
+            print(Vint)
+#            za = list(outa)
+#            lenga = len(za)
+#            a1 = (outa[:-2])[-1:]
+#            print(a1)
+#            a2 = (outa[:-3])[-1:]
+#            print(a2)
+#            A = format(a1, 'x') + format(a2, 'x')
+#            print(A)
+            voltage_A = Vint / 100
             return voltage_A
         return "crc_false"
 
