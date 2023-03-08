@@ -163,7 +163,7 @@ class Mercury230:
         ser.write(chunk)
 #        print(chunk)
 #        time.sleep(100 / 1000)
-        ver = ser.read(19)
+        outa = ser.read(19)
 #        print(ver)
         if ver[-2:] == self.crc16(ver[:-2])[-2:]:
             b1 = (outa[:-16])[-1:]
