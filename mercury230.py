@@ -448,6 +448,7 @@ class Mercury230:
             a2 = za[lenga - 4]
             print(a2)
             A = format(a1, 'x') + format(a2, 'x')
+            print(A)
             voltage_A = int(A, 16) / 100
             return voltage_A
         return "crc_false"
