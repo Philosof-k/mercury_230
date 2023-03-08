@@ -553,9 +553,13 @@ class Mercury230:
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-4])[-1:]
+            print(b1)
             b2 = (outa[:-2])[-1:]
+            print(b2)
             b3 = (outa[:-3])[-1:]
+            print(b3)
             bs = b1 + b2 + b3
+            print(bs)
             Pint = int.from_bytes(bs, "big")
             P = Pint / 100
             return P
