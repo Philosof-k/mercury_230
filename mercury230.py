@@ -396,12 +396,11 @@ class Mercury230:
 #        time.sleep(100 / 1000)
         temp = ser.read(6)
         if temp[-2:] == self.crc16(temp[:-2])[-2:]:
-            za = list(temp)
-            lenga = len(za)
-            a1 = za[lenga - 3]
-            a2 = za[lenga - 4]
-            f = format(a1, 'x') + format(a2, 'x')
-            frequency = int(f, 16) / 100
+            b1 = (outa[:-2])[-1:]
+            b2 = (outa[:-3])[-1:]
+            bs = b1 + b2
+            frequencyint = int.from_bytes(bs, "big")
+            frequency = frequencyint / 100
             return frequency
         return "crc_false"
 
