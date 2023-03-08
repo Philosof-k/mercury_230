@@ -70,27 +70,15 @@ client.loop_start()
 
 
 def cycle_read():
-    Ua = 0
-    Ub = 0
-    Uc = 0
-    fooUa = True
-    fooUb = True
-    fooUc = True
-    Ia = 0
-    Ib = 0
-    Ic = 0
-    fooIa = True
-    fooIb = True
-    fooIc = True
     while r == True:
         mercury_234.connect_user()
 #        mercury_234.connection_test()
-        lUa = mercury_234.get_voltage_A()
-        lUb = mercury_234.get_voltage_B()
-        lUc = mercury_234.get_voltage_C()
-        lIa = mercury_234.get_current_A()
-        lIb = mercury_234.get_current_B()
-        lIc = mercury_234.get_current_C()
+        Ua = mercury_234.get_voltage_A()
+        Ub = mercury_234.get_voltage_B()
+        Uc = mercury_234.get_voltage_C()
+        Ia = mercury_234.get_current_A()
+        Ib = mercury_234.get_current_B()
+        Ic = mercury_234.get_current_C()
         P = mercury_234.get_P()
         Pa = mercury_234.get_P_A()
         Pb = mercury_234.get_P_B()
@@ -104,58 +92,6 @@ def cycle_read():
         Hz = mercury_234.get_frequency()
 #        Tcase = mercury_234.get_temp()
         Pcd = mercury_234.get_active_energy_current_day()
-        if abs(lUa - Ua) < 30:
-                Ua = lUa
-                fooUa = False
-        else:
-            if fooUa:
-                Ua = lUa
-                fooUa = False
-            fooUa = True
-            time.sleep(5)
-        if abs(lUb - Ub) < 30:
-                Ub = lUb
-                fooUb = False
-        else:
-            if fooUb:
-                Ub = lUb
-                fooUb = False
-            fooUb = True
-            time.sleep(5)
-        if abs(lUc - Uc) < 30:
-                Uc = lUc
-                fooUc = False
-        else:
-            if fooUc:
-                Uc = lUc
-                fooUc = False
-            fooUc = True
-            time.sleep(5)
-        if abs(lIa - Ia) < 5:
-                Ia = lIa
-                fooIa = False
-        else:
-            if fooIa:
-                Ia = lIa
-                fooIa = False
-            fooIa = True
-        if abs(lIb - Ib) < 5:
-                Ib = lIb
-                fooIb = False
-        else:
-            if fooIb:
-                Ib = lIb
-                fooIb = False
-            fooIb = True
-        if abs(lIc - Ic) < 5:
-                Ic = lIc
-                fooIc = False
-        else:
-            if fooIc:
-                Ic = lIc
-                fooIc = False
-            fooIc = True
-            
 #        print("Ua : ", Ua, ", Ub : ", Ub, ", Uc : ", Uc)
 #        print("Ua : ", Ua)
 #        print("Ia : ", Ia, ", Ib : ", Ib, ", Ic : ", Ic)
