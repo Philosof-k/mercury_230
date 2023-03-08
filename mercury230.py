@@ -552,27 +552,12 @@ class Mercury230:
         outa = ser.read(6)
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            print(za)
-            lenga = len(za)
-            a2 = za[lenga - 3]
-            print(a2)
-            a3 = za[lenga - 4]
-            print(a3)
-            a1a = za[lenga - 5]
-            print(a1a)
-            mybyte = a1a
-            print(mybyte)
-            binary_string = "{:08b}".format(int(mybyte))
-            print(binary_string)
-            bd = list(binary_string)
-            print(bd)
-            AR = bd[0]
-            RR = bd[1]
-            a1 = ''.join(bd[2:8])
-            a1b = hex(int(a1, 2))
-            A = a1b + format(a2, 'x') + format(a3, 'x')
-            P = int(A, 16) / 100
+            b1 = (outa[:-4])[-1:]
+            b2 = (outa[:-2])[-1:]
+            b3 = (outa[:-3])[-1:]
+            bs = b1 + b2 + b3
+            Pint = int.from_bytes(bs, "big")
+            P = Pint / 100
             return P
         return "crc_false"
 
