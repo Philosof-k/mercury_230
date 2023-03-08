@@ -82,6 +82,24 @@ def cycle_read():
     fooIa = True
     fooIb = True
     fooIc = True
+    Pa = 0
+    Pb = 0
+    Pc = 0
+    fooPa = True
+    fooPb = True
+    fooPc = True
+    Qa = 0
+    Qb = 0
+    Qc = 0
+    fooQa = True
+    fooQb = True
+    fooQc = True
+    Sa = 0
+    Sb = 0
+    Sc = 0
+    fooSa = True
+    fooSb = True
+    fooSc = True
     while r == True:
         mercury_234.connect_user()
 #        mercury_234.connection_test()
@@ -92,15 +110,15 @@ def cycle_read():
         lIb = mercury_234.get_current_B()
         lIc = mercury_234.get_current_C()
         P = mercury_234.get_P()
-        Pa = mercury_234.get_P_A()
-        Pb = mercury_234.get_P_B()
-        Pc = mercury_234.get_P_C()
-        Qa = mercury_234.get_Q_A()
-        Qb = mercury_234.get_Q_B()
-        Qc = mercury_234.get_Q_C()
-        Sa = mercury_234.get_S_A()
-        Sb = mercury_234.get_S_B()
-        Sc = mercury_234.get_S_C()
+        lPa = mercury_234.get_P_A()
+        lPb = mercury_234.get_P_B()
+        lPc = mercury_234.get_P_C()
+        lQa = mercury_234.get_Q_A()
+        lQb = mercury_234.get_Q_B()
+        lQc = mercury_234.get_Q_C()
+        lSa = mercury_234.get_S_A()
+        lSb = mercury_234.get_S_B()
+        lSc = mercury_234.get_S_C()
         Hz = mercury_234.get_frequency()
 #        Tcase = mercury_234.get_temp()
         Pcd = mercury_234.get_active_energy_current_day()
@@ -131,6 +149,7 @@ def cycle_read():
                 fooUc = False
             fooUc = True
             time.sleep(5)
+
         if abs(lIa - Ia) < 5:
                 Ia = lIa
                 fooIa = False
@@ -155,7 +174,81 @@ def cycle_read():
                 Ic = lIc
                 fooIc = False
             fooIc = True
-            
+
+        if abs(lPa - Pa) < 200:
+                Pa = lPa
+                fooPa = False
+        else:
+            if fooPa:
+                Pa = lPa
+                fooPa = False
+            fooPa = True
+        if abs(lPb - Pb) < 200:
+                Pb = lPb
+                fooPb = False
+        else:
+            if fooPb:
+                Pb = lPb
+                fooPb = False
+            fooPb = True
+        if abs(lPc - Pc) < 200:
+                Pc = lPc
+                fooPc = False
+        else:
+            if fooPc:
+                Pc = lPc
+                fooPc = False
+            fooPc = True            
+
+        if abs(lQa - Qa) < 200:
+                Qa = lQa
+                fooQa = False
+        else:
+            if fooQa:
+                Qa = lQa
+                fooQa = False
+            fooQa = True
+        if abs(lQb - Qb) < 200:
+                Qb = lQb
+                fooQb = False
+        else:
+            if fooQb:
+                Qb = lQb
+                fooQb = False
+            fooQb = True
+        if abs(lQc - Qc) < 200:
+                Qc = lQc
+                fooQc = False
+        else:
+            if fooQc:
+                Qc = lQc
+                fooQc = False
+            fooQc = True            
+
+        if abs(lSa - Sa) < 200:
+                Sa = lSa
+                fooSa = False
+        else:
+            if fooSa:
+                Sa = lSa
+                fooSa = False
+            fooSa = True
+        if abs(lSb - Sb) < 200:
+                Sb = lSb
+                fooSb = False
+        else:
+            if fooSb:
+                Sb = lSb
+                fooSb = False
+            fooSb = True
+        if abs(lSc - Sc) < 200:
+                Sc = lSc
+                fooSc = False
+        else:
+            if fooSc:
+                Sc = lSc
+                fooSc = False
+            fooSc = True            
 #        print("Ua : ", Ua, ", Ub : ", Ub, ", Uc : ", Uc)
 #        print("Ua : ", Ua)
 #        print("Ia : ", Ia, ", Ib : ", Ib, ", Ic : ", Ic)
