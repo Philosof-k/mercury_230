@@ -553,6 +553,8 @@ class Mercury230:
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-4])[-1:]
+            bm = 64
+            b1 = b1 | bm
             print(b1)
             b2 = (outa[:-2])[-1:]
             print(b2)
