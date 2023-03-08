@@ -452,7 +452,6 @@ class Mercury230:
         ser = self.open_port(self.ipaddress1, self.ipport1)
         ser.timeout = 0.2
         ser.write(chunk)
-#        time.sleep(100 / 1000)
         outa = ser.read(6)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-2])[-1:]
@@ -512,7 +511,6 @@ class Mercury230:
         ser.write(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
-        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-2])[-1:]
             b2 = (outa[:-3])[-1:]
@@ -531,9 +529,7 @@ class Mercury230:
         ser = self.open_port(self.ipaddress1, self.ipport1)
         ser.timeout = 0.2
         ser.write(chunk)
-#        time.sleep(100 / 1000)
         outa = ser.read(6)
-        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-2])[-1:]
             b2 = (outa[:-3])[-1:]
@@ -554,15 +550,23 @@ class Mercury230:
         ser.write(chunk)
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
+        print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             za = list(outa)
+            print(za)
             lenga = len(za)
             a2 = za[lenga - 3]
+            print(a2)
             a3 = za[lenga - 4]
+            print(a3)
             a1a = za[lenga - 5]
+            print(a1a)
             mybyte = a1a
+            print(mybyte)
             binary_string = "{:08b}".format(int(mybyte))
+            print(binary_string)
             bd = list(binary_string)
+            print(bd)
             AR = bd[0]
             RR = bd[1]
             a1 = ''.join(bd[2:8])
@@ -581,7 +585,6 @@ class Mercury230:
         ser = self.open_port(self.ipaddress1, self.ipport1)
         ser.timeout = 0.2
         ser.write(chunk)
-#        time.sleep(100 / 1000)
         outa = ser.read(6)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             za = list(outa)
