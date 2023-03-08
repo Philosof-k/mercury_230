@@ -497,7 +497,7 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Iint = int.from_bytes(bs, "big")
-            current_A = Iint / 100
+            current_A = Iint / 1000
             return current_A
         return "crc_false"
 
@@ -514,14 +514,11 @@ class Mercury230:
         outa = ser.read(6)
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a1 = za[lenga - 3]
-            print(a1)
-            a2 = za[lenga - 4]
-            print(a2)
-            A = format(a1, 'x') + format(a2, 'x')
-            current_B = int(A, 16) / 1000
+            b1 = (outa[:-2])[-1:]
+            b2 = (outa[:-3])[-1:]
+            bs = b1 + b2
+            Iint = int.from_bytes(bs, "big")
+            current_B = Iint / 1000
             return current_B
         return "crc_false"
 
@@ -538,14 +535,11 @@ class Mercury230:
         outa = ser.read(6)
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a1 = za[lenga - 3]
-            print(a1)
-            a2 = za[lenga - 4]
-            print(a2)
-            A = format(a1, 'x') + format(a2, 'x')
-            current_C = int(A, 16) / 1000
+            b1 = (outa[:-2])[-1:]
+            b2 = (outa[:-3])[-1:]
+            bs = b1 + b2
+            Iint = int.from_bytes(bs, "big")
+            current_C = Iint / 1000
             return current_C
         return "crc_false"
 
