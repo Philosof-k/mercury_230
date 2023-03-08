@@ -173,7 +173,7 @@ class Mercury230:
             a1 = za[lengza - 16]
             a2 = za[lengza - 17]
             a3 = za[lengza - 18]
-            A = format(a3, 'x') + format(a2, 'x') + format(a0, 'x') + format(a1, 'x')
+            A = format(a2, 'x') + format(a3, 'x') + format(a0, 'x') + format(a1, 'x')
             P = int(A, 16) / 1000
             return P
         return "crc_false"
