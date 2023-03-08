@@ -166,15 +166,13 @@ class Mercury230:
         ver = ser.read(19)
 #        print(ver)
         if ver[-2:] == self.crc16(ver[:-2])[-2:]:
-            za = list(ver)
-            # print(za)
-            lengza = len(za)
-            a0 = za[lengza - 15]
-            a1 = za[lengza - 16]
-            a2 = za[lengza - 17]
-            a3 = za[lengza - 18]
-            A = format(a2, 'x') + format(a3, 'x') + format(a0, 'x') + format(a1, 'x')
-            P = int(A, 16) / 1000
+            b1 = (outa[:-16])[-1:]
+            b2 = (outa[:-15])[-1:]
+            b3 = (outa[:-18])[-1:]
+            b4 = (outa[:-17])[-1:]
+            bs = b1 + b2 + b3 + b4
+            Pint = int.from_bytes(bs, "big")
+            P = Pint / 1000
             return P
         return "crc_false"
 
