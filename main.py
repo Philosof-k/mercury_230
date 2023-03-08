@@ -131,7 +131,7 @@ def cycle_read():
                 fooUa = False
             fooUa = True
             time.sleep(5)
-        if abs(lUb - Ub) < 30:
+        if lUb != 'crc_false' and abs(lUb - Ub) < 30:
                 Ub = lUb
                 fooUb = False
         else:
@@ -140,7 +140,7 @@ def cycle_read():
                 fooUb = False
             fooUb = True
             time.sleep(5)
-        if abs(lUc - Uc) < 30:
+        if lUc != 'crc_false' and abs(lUc - Uc) < 30:
                 Uc = lUc
                 fooUc = False
         else:
@@ -150,7 +150,7 @@ def cycle_read():
             fooUc = True
             time.sleep(5)
 
-        if abs(lIa - Ia) < 5:
+        if lIa != 'crc_false' and abs(lIa - Ia) < 5:
                 Ia = lIa
                 fooIa = False
         else:
@@ -158,7 +158,7 @@ def cycle_read():
                 Ia = lIa
                 fooIa = False
             fooIa = True
-        if abs(lIb - Ib) < 5:
+        if lIb != 'crc_false' and abs(lIb - Ib) < 5:
                 Ib = lIb
                 fooIb = False
         else:
@@ -166,7 +166,7 @@ def cycle_read():
                 Ib = lIb
                 fooIb = False
             fooIb = True
-        if abs(lIc - Ic) < 5:
+        if lIc != 'crc_false' and abs(lIc - Ic) < 5:
                 Ic = lIc
                 fooIc = False
         else:
@@ -175,7 +175,7 @@ def cycle_read():
                 fooIc = False
             fooIc = True
 
-        if abs(lPa - Pa) < 200:
+        if lPa != 'crc_false' and abs(lPa - Pa) < 200:
                 Pa = lPa
                 fooPa = False
         else:
@@ -183,7 +183,7 @@ def cycle_read():
                 Pa = lPa
                 fooPa = False
             fooPa = True
-        if abs(lPb - Pb) < 200:
+        if lPb != 'crc_false' and abs(lPb - Pb) < 200:
                 Pb = lPb
                 fooPb = False
         else:
@@ -191,7 +191,7 @@ def cycle_read():
                 Pb = lPb
                 fooPb = False
             fooPb = True
-        if abs(lPc - Pc) < 200:
+        if lPc != 'crc_false' and abs(lPc - Pc) < 200:
                 Pc = lPc
                 fooPc = False
         else:
@@ -200,7 +200,7 @@ def cycle_read():
                 fooPc = False
             fooPc = True            
 
-        if abs(lQa - Qa) < 200:
+        if lQa != 'crc_false' and abs(lQa - Qa) < 200:
                 Qa = lQa
                 fooQa = False
         else:
@@ -208,7 +208,7 @@ def cycle_read():
                 Qa = lQa
                 fooQa = False
             fooQa = True
-        if abs(lQb - Qb) < 200:
+        if lQb != 'crc_false' and abs(lQb - Qb) < 200:
                 Qb = lQb
                 fooQb = False
         else:
@@ -216,7 +216,7 @@ def cycle_read():
                 Qb = lQb
                 fooQb = False
             fooQb = True
-        if abs(lQc - Qc) < 200:
+        if lQc != 'crc_false' and abs(lQc - Qc) < 200:
                 Qc = lQc
                 fooQc = False
         else:
@@ -225,7 +225,7 @@ def cycle_read():
                 fooQc = False
             fooQc = True            
 
-        if abs(lSa - Sa) < 200:
+        if lSa != 'crc_false' and abs(lSa - Sa) < 200:
                 Sa = lSa
                 fooSa = False
         else:
@@ -233,7 +233,7 @@ def cycle_read():
                 Sa = lSa
                 fooSa = False
             fooSa = True
-        if abs(lSb - Sb) < 200:
+        if lSb != 'crc_false' and abs(lSb - Sb) < 200:
                 Sb = lSb
                 fooSb = False
         else:
@@ -241,7 +241,7 @@ def cycle_read():
                 Sb = lSb
                 fooSb = False
             fooSb = True
-        if abs(lSc - Sc) < 200:
+        if lSc != 'crc_false' and abs(lSc - Sc) < 200:
                 Sc = lSc
                 fooSc = False
         else:
