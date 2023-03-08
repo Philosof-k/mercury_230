@@ -553,15 +553,11 @@ class Mercury230:
         print(outa)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
             b1 = (outa[:-4])[-1:]
-            print(b1)
             b1int = int.from_bytes(b1, "big") & 0b00111111
-            print(b1int)
             b1 = b1int.to_bytes(1, 'big')
-            print(b1)
             b2 = (outa[:-2])[-1:]
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
-            print(bs)
             Pint = int.from_bytes(bs, "big")
             P = Pint / 100
             return P
@@ -578,23 +574,14 @@ class Mercury230:
         ser.write(chunk)
         outa = ser.read(6)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a2 = za[lenga - 3]
-            a3 = za[lenga - 4]
-            a1a = za[lenga - 5]
-            mybyte = a1a
-            binary_string = "{:08b}".format(int(mybyte))
-            bd = list(binary_string)
-            AR = bd[0]
-            RR = bd[1]
-            a1 = ''.join(bd[2:8])
-            a1b = hex(int(a1, 2))
-            A = a1b + format(a2, 'x') + format(a3, 'x')
-            k = 1
-            PA = int(A, 16) / 100
-            if AR:
-                PA = PA * k
+            b1 = (outa[:-4])[-1:]
+            b1int = int.from_bytes(b1, "big") & 0b00111111
+            b1 = b1int.to_bytes(1, 'big')
+            b2 = (outa[:-2])[-1:]
+            b3 = (outa[:-3])[-1:]
+            bs = b1 + b2 + b3
+            PAint = int.from_bytes(bs, "big")
+            PA = PAint / 100
             return PA
         return "crc_false"
 
@@ -610,23 +597,14 @@ class Mercury230:
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a2 = za[lenga - 3]
-            a3 = za[lenga - 4]
-            a1a = za[lenga - 5]
-            mybyte = a1a
-            binary_string = "{:08b}".format(int(mybyte))
-            bd = list(binary_string)
-            AR = bd[0]
-            RR = bd[1]
-            a1 = ''.join(bd[2:8])
-            a1b = hex(int(a1, 2))
-            A = a1b + format(a2, 'x') + format(a3, 'x')
-            PB = int(A, 16) / 100
-            k = 1
-            if AR:
-                PB = PB * k
+            b1 = (outa[:-4])[-1:]
+            b1int = int.from_bytes(b1, "big") & 0b00111111
+            b1 = b1int.to_bytes(1, 'big')
+            b2 = (outa[:-2])[-1:]
+            b3 = (outa[:-3])[-1:]
+            bs = b1 + b2 + b3
+            PBint = int.from_bytes(bs, "big")
+            PB = PBint / 100
             return PB
         return "crc_false"
 
@@ -642,23 +620,14 @@ class Mercury230:
 #        time.sleep(100 / 1000)
         outa = ser.read(6)
         if outa[-2:] == self.crc16(outa[:-2])[-2:]:
-            za = list(outa)
-            lenga = len(za)
-            a2 = za[lenga - 3]
-            a3 = za[lenga - 4]
-            a1a = za[lenga - 5]
-            mybyte = a1a
-            binary_string = "{:08b}".format(int(mybyte))
-            bd = list(binary_string)
-            AR = bd[0]
-            RR = bd[1]
-            a1 = ''.join(bd[2:8])
-            a1b = hex(int(a1, 2))
-            A = a1b + format(a2, 'x') + format(a3, 'x')
-            PC = int(A, 16) / 100
-            k = 1
-            if AR:
-                PC = PC * k
+            b1 = (outa[:-4])[-1:]
+            b1int = int.from_bytes(b1, "big") & 0b00111111
+            b1 = b1int.to_bytes(1, 'big')
+            b2 = (outa[:-2])[-1:]
+            b3 = (outa[:-3])[-1:]
+            bs = b1 + b2 + b3
+            PCint = int.from_bytes(bs, "big")
+            PC = PCint / 100
             return PC
         return "crc_false"
 
