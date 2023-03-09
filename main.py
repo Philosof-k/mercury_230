@@ -164,6 +164,7 @@ def cycle_read():
                 Ia = lIa
                 fooIa = False
             fooIa = True
+            time.sleep(5)
         if lIb != 'crc_false' and abs(lIb - Ib) < 5:
                 Ib = lIb
                 fooIb = False
@@ -172,6 +173,7 @@ def cycle_read():
                 Ib = lIb
                 fooIb = False
             fooIb = True
+            time.sleep(5)
         if lIc != 'crc_false' and abs(lIc - Ic) < 5:
                 Ic = lIc
                 fooIc = False
@@ -180,6 +182,7 @@ def cycle_read():
                 Ic = lIc
                 fooIc = False
             fooIc = True
+            time.sleep(5)
 
         if lPa != 'crc_false' and abs(lPa - Pa) < 200:
                 Pa = lPa
@@ -189,6 +192,7 @@ def cycle_read():
                 Pa = lPa
                 fooPa = False
             fooPa = True
+            time.sleep(5)
         if lPb != 'crc_false' and abs(lPb - Pb) < 200:
                 Pb = lPb
                 fooPb = False
@@ -197,6 +201,7 @@ def cycle_read():
                 Pb = lPb
                 fooPb = False
             fooPb = True
+            time.sleep(5)
         if lPc != 'crc_false' and abs(lPc - Pc) < 200:
                 Pc = lPc
                 fooPc = False
@@ -204,7 +209,8 @@ def cycle_read():
             if fooPc:
                 Pc = lPc
                 fooPc = False
-            fooPc = True            
+            fooPc = True
+            time.sleep(5)
 
         if lQa != 'crc_false' and abs(lQa - Qa) < 200:
                 Qa = lQa
@@ -214,6 +220,7 @@ def cycle_read():
                 Qa = lQa
                 fooQa = False
             fooQa = True
+            time.sleep(5)
         if lQb != 'crc_false' and abs(lQb - Qb) < 200:
                 Qb = lQb
                 fooQb = False
@@ -222,6 +229,7 @@ def cycle_read():
                 Qb = lQb
                 fooQb = False
             fooQb = True
+            time.sleep(5)
         if lQc != 'crc_false' and abs(lQc - Qc) < 200:
                 Qc = lQc
                 fooQc = False
@@ -229,7 +237,8 @@ def cycle_read():
             if fooQc:
                 Qc = lQc
                 fooQc = False
-            fooQc = True            
+            fooQc = True
+            time.sleep(5)            
 
         if lSa != 'crc_false' and abs(lSa - Sa) < 200:
                 Sa = lSa
@@ -239,6 +248,7 @@ def cycle_read():
                 Sa = lSa
                 fooSa = False
             fooSa = True
+            time.sleep(5)
         if lSb != 'crc_false' and abs(lSb - Sb) < 200:
                 Sb = lSb
                 fooSb = False
@@ -247,6 +257,7 @@ def cycle_read():
                 Sb = lSb
                 fooSb = False
             fooSb = True
+            time.sleep(5)
         if lSc != 'crc_false' and abs(lSc - Sc) < 200:
                 Sc = lSc
                 fooSc = False
@@ -254,7 +265,8 @@ def cycle_read():
             if fooSc:
                 Sc = lSc
                 fooSc = False
-            fooSc = True            
+            fooSc = True
+            time.sleep(5)            
 
         if lP != 'crc_false' and abs(lP - P) < 1000:
                 P = lP
@@ -263,7 +275,8 @@ def cycle_read():
             if fooP:
                 P = lP
                 fooP = False
-            fooP = True  
+            fooP = True
+            time.sleep(5)
         if lPcd != 'crc_false' and abs(lPcd - Pcd) < 10:
                 Pcd = lPcd
                 fooPcd = False
@@ -271,7 +284,8 @@ def cycle_read():
             if fooPcd:
                 Pcd = lPcd
                 fooPcd = False
-            fooPcd = True 
+            fooPcd = True
+            time.sleep(5)
         if lHz != 'crc_false' and abs(lHz - Hz) < 1:
                 Hz = lHz
                 fooHz = False
@@ -279,7 +293,8 @@ def cycle_read():
             if fooHz:
                 Hz = lHz
                 fooHz = False
-            fooHz = True 
+            fooHz = True
+            time.sleep(5)
 #        print("Ua : ", Ua, ", Ub : ", Ub, ", Uc : ", Uc)
 #        print("Ua : ", Ua)
 #        print("Ia : ", Ia, ", Ib : ", Ib, ", Ic : ", Ic)
