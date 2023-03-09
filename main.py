@@ -100,6 +100,12 @@ def cycle_read():
     fooSa = True
     fooSb = True
     fooSc = True
+    P = 0
+    Pcd = 0
+    Hz = 0
+    fooP = True
+    fooPcd = True
+    fooHz = True
     while r == True:
         mercury_234.connect_user()
 #        mercury_234.connection_test()
@@ -109,7 +115,7 @@ def cycle_read():
         lIa = mercury_234.get_current_A()
         lIb = mercury_234.get_current_B()
         lIc = mercury_234.get_current_C()
-        P = mercury_234.get_P()
+        lP = mercury_234.get_P()
         lPa = mercury_234.get_P_A()
         lPb = mercury_234.get_P_B()
         lPc = mercury_234.get_P_C()
@@ -119,9 +125,9 @@ def cycle_read():
         lSa = mercury_234.get_S_A()
         lSb = mercury_234.get_S_B()
         lSc = mercury_234.get_S_C()
-        Hz = mercury_234.get_frequency()
+        lHz = mercury_234.get_frequency()
 #        Tcase = mercury_234.get_temp()
-        Pcd = mercury_234.get_active_energy_current_day()
+        lPcd = mercury_234.get_active_energy_current_day()
         if lUa != 'crc_false' and abs(lUa - Ua) < 30:
                 Ua = lUa
                 fooUa = False
@@ -249,6 +255,31 @@ def cycle_read():
                 Sc = lSc
                 fooSc = False
             fooSc = True            
+
+        if lP != 'crc_false' and abs(lP - P) < 1000:
+                P = lP
+                fooP = False
+        else:
+            if fooP:
+                P = lP
+                fooP = False
+            fooP = True  
+        if lPcd != 'crc_false' and abs(lPcd - Pcd) < 10:
+                Pcd = lPcd
+                fooPcd = False
+        else:
+            if fooPcd:
+                Pcd = lPcd
+                fooPcd = False
+            fooPcd = True 
+        if lHz != 'crc_false' and abs(lHz - Hz) < 1:
+                Hz = lHz
+                fooHz = False
+        else:
+            if fooHz:
+                Hz = lHz
+                fooHz = False
+            fooHz = True 
 #        print("Ua : ", Ua, ", Ub : ", Ub, ", Uc : ", Uc)
 #        print("Ua : ", Ua)
 #        print("Ia : ", Ia, ", Ib : ", Ib, ", Ic : ", Ic)
