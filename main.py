@@ -73,40 +73,40 @@ def cycle_read():
     Ua = 220
     Ub = 220
     Uc = 220
-    fooUa = True
-    fooUb = True
-    fooUc = True
+    fooUa = False
+    fooUb = False
+    fooUc = False
     Ia = 20
     Ib = 20
     Ic = 20
-    fooIa = True
-    fooIb = True
-    fooIc = True
+    fooIa = False
+    fooIb = False
+    fooIc = False
     Pa = 4000
     Pb = 4000
     Pc = 4000
-    fooPa = True
-    fooPb = True
-    fooPc = True
+    fooPa = False
+    fooPb = False
+    fooPc = False
     Qa = 500
     Qb = 500
     Qc = 500
-    fooQa = True
-    fooQb = True
-    fooQc = True
+    fooQa = False
+    fooQb = False
+    fooQc = False
     Sa = 4000
     Sb = 4000
     Sc = 4000
-    fooSa = True
-    fooSb = True
-    fooSc = True
+    fooSa = False
+    fooSb = False
+    fooSc = False
     P = 13000
     Pcd = 200
     Hz = 50
-    fooP = True
-    fooPcd = True
-    fooHz = True
-    while r == True:
+    fooP = False
+    fooPcd = False
+    fooHz = False
+    while r:
         mercury_234.connect_user()
 #        mercury_234.connection_test()
         lUa = mercury_234.get_voltage_A()
@@ -212,7 +212,7 @@ def cycle_read():
             fooPc = True
             time.sleep(5)
 
-        if lQa != 'crc_false' and abs(lQa - Qa) < 200:
+        if lQa != 'crc_false' and abs(lQa - Qa) < 400:
                 Qa = lQa
                 fooQa = False
         else:
@@ -221,7 +221,7 @@ def cycle_read():
                 fooQa = False
             fooQa = True
             time.sleep(5)
-        if lQb != 'crc_false' and abs(lQb - Qb) < 200:
+        if lQb != 'crc_false' and abs(lQb - Qb) < 400:
                 Qb = lQb
                 fooQb = False
         else:
@@ -230,7 +230,7 @@ def cycle_read():
                 fooQb = False
             fooQb = True
             time.sleep(5)
-        if lQc != 'crc_false' and abs(lQc - Qc) < 200:
+        if lQc != 'crc_false' and abs(lQc - Qc) < 400:
                 Qc = lQc
                 fooQc = False
         else:
@@ -240,7 +240,7 @@ def cycle_read():
             fooQc = True
             time.sleep(5)            
 
-        if lSa != 'crc_false' and abs(lSa - Sa) < 200:
+        if lSa != 'crc_false' and abs(lSa - Sa) < 1000:
                 Sa = lSa
                 fooSa = False
         else:
@@ -249,7 +249,7 @@ def cycle_read():
                 fooSa = False
             fooSa = True
             time.sleep(5)
-        if lSb != 'crc_false' and abs(lSb - Sb) < 200:
+        if lSb != 'crc_false' and abs(lSb - Sb) < 1000:
                 Sb = lSb
                 fooSb = False
         else:
@@ -258,7 +258,7 @@ def cycle_read():
                 fooSb = False
             fooSb = True
             time.sleep(5)
-        if lSc != 'crc_false' and abs(lSc - Sc) < 200:
+        if lSc != 'crc_false' and abs(lSc - Sc) < 1000:
                 Sc = lSc
                 fooSc = False
         else:
@@ -268,7 +268,7 @@ def cycle_read():
             fooSc = True
             time.sleep(5)            
 
-        if lP != 'crc_false' and abs(lP - P) < 1000:
+        if lP != 'crc_false' and abs(lP - P) < 2000:
                 P = lP
                 fooP = False
         else:
