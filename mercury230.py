@@ -173,6 +173,7 @@ class Mercury230:
             Pint = int.from_bytes(bs, "big")
             P = Pint / 1000
             return P
+        time.sleep(5)
         return "crc_false"
 
     def get_active_energy_last_day(self):
@@ -401,6 +402,7 @@ class Mercury230:
             frequencyint = int.from_bytes(bs, "big")
             frequency = frequencyint / 100
             return frequency
+        time.sleep(5)
         return "crc_false"
 
     # for mercury 234
@@ -436,6 +438,7 @@ class Mercury230:
             Vint = int.from_bytes(bs, "big")
             voltage_A = Vint / 100
             return voltage_A
+        time.sleep(5)
         return "crc_false"
 
     def get_voltage_B(self):
@@ -455,6 +458,7 @@ class Mercury230:
             Vint = int.from_bytes(bs, "big")
             voltage_B = Vint / 100
             return voltage_B
+        time.sleep(5)
         return "crc_false"
 
     def get_voltage_C(self):
@@ -474,6 +478,7 @@ class Mercury230:
             Vint = int.from_bytes(bs, "big")
             voltage_C = Vint / 100
             return voltage_C
+        time.sleep(5)
         return "crc_false"
 
     def get_current_A(self):
@@ -493,6 +498,7 @@ class Mercury230:
             Iint = int.from_bytes(bs, "big")
             current_A = Iint / 1000
             return current_A
+        time.sleep(5)
         return "crc_false"
 
     def get_current_B(self):
@@ -513,6 +519,7 @@ class Mercury230:
             Iint = int.from_bytes(bs, "big")
             current_B = Iint / 1000
             return current_B
+        time.sleep(5)
         return "crc_false"
 
     def get_current_C(self):
@@ -532,6 +539,7 @@ class Mercury230:
             Iint = int.from_bytes(bs, "big")
             current_C = Iint / 1000
             return current_C
+        time.sleep(5)
         return "crc_false"
 
     def get_P(self):
@@ -554,6 +562,7 @@ class Mercury230:
             Pint = int.from_bytes(bs, "big")
             P = Pint / 100
             return P
+        time.sleep(5)
         return "crc_false"
 
     def get_P_A(self):
@@ -576,6 +585,7 @@ class Mercury230:
             PAint = int.from_bytes(bs, "big")
             PA = PAint / 100
             return PA
+        time.sleep(5)
         return "crc_false"
 
     def get_P_B(self):
@@ -599,6 +609,7 @@ class Mercury230:
             PBint = int.from_bytes(bs, "big")
             PB = PBint / 100
             return PB
+        time.sleep(5)
         return "crc_false"
 
     def get_P_C(self):
@@ -622,6 +633,7 @@ class Mercury230:
             PCint = int.from_bytes(bs, "big")
             PC = PCint / 100
             return PC
+        time.sleep(5)
         return "crc_false"
 
     def get_Q(self):
@@ -645,6 +657,7 @@ class Mercury230:
             Qint = int.from_bytes(bs, "big")
             Q = Qint / 100
             return Q
+        time.sleep(5)
         return "crc_false"
 
     def get_Q_A(self):
@@ -667,6 +680,7 @@ class Mercury230:
             QAint = int.from_bytes(bs, "big")
             QA = QAint / 100
             return QA
+        time.sleep(5)
         return "crc_false"
 
     def get_Q_B(self):
@@ -690,6 +704,7 @@ class Mercury230:
             QBint = int.from_bytes(bs, "big")
             QB = QBint / 100
             return QB
+        time.sleep(5)
         return "crc_false"
 
     def get_Q_C(self):
@@ -712,6 +727,7 @@ class Mercury230:
             QCint = int.from_bytes(bs, "big")
             QC = QCint / 100
             return QC
+        time.sleep(5)
         return "crc_false"
 
     def get_S(self):
@@ -734,6 +750,7 @@ class Mercury230:
             Sint = int.from_bytes(bs, "big")
             S = Sint / 100
             return S
+        time.sleep(5)
         return "crc_false"
 
     def get_S_A(self):
@@ -756,6 +773,7 @@ class Mercury230:
             SAint = int.from_bytes(bs, "big")
             SA = SAint / 100
             return SA
+        time.sleep(5)
         return "crc_false"
 
     def get_S_B(self):
@@ -778,6 +796,7 @@ class Mercury230:
             SBint = int.from_bytes(bs, "big")
             SB = SBint / 100
             return SB
+        time.sleep(5)
         return "crc_false"
 
     def get_S_C(self):
@@ -801,6 +820,7 @@ class Mercury230:
             SCint = int.from_bytes(bs, "big")
             SC = SCint / 100
             return SC
+        time.sleep(5)
         return "crc_false"
 
 # merc = Mercury230(address, port)
