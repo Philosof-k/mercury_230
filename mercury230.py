@@ -400,6 +400,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             frequencyint = int.from_bytes(bs, "big")
+            if frequencyint == 1330
+                return "error"
             frequency = frequencyint / 100
             return frequency
         time.sleep(5)

@@ -70,231 +70,28 @@ client.loop_start()
 
 
 def cycle_read():
-    Ua = 220
-    Ub = 220
-    Uc = 220
-    fooUa = False
-    fooUb = False
-    fooUc = False
-    Ia = 20
-    Ib = 20
-    Ic = 20
-    fooIa = False
-    fooIb = False
-    fooIc = False
-    Pa = 4000
-    Pb = 4000
-    Pc = 4000
-    fooPa = False
-    fooPb = False
-    fooPc = False
-    Qa = 500
-    Qb = 500
-    Qc = 500
-    fooQa = False
-    fooQb = False
-    fooQc = False
-    Sa = 4000
-    Sb = 4000
-    Sc = 4000
-    fooSa = False
-    fooSb = False
-    fooSc = False
-    P = 13000
-    Pcd = 200
-    Hz = 50
-    fooP = False
-    fooPcd = False
-    fooHz = False
     while r:
         mercury_234.connect_user()
 #        mercury_234.connection_test()
-        lUa = mercury_234.get_voltage_A()
-        lUb = mercury_234.get_voltage_B()
-        lUc = mercury_234.get_voltage_C()
-        lIa = mercury_234.get_current_A()
-        lIb = mercury_234.get_current_B()
-        lIc = mercury_234.get_current_C()
-        lP = mercury_234.get_P()
-        lPa = mercury_234.get_P_A()
-        lPb = mercury_234.get_P_B()
-        lPc = mercury_234.get_P_C()
-        lQa = mercury_234.get_Q_A()
-        lQb = mercury_234.get_Q_B()
-        lQc = mercury_234.get_Q_C()
-        lSa = mercury_234.get_S_A()
-        lSb = mercury_234.get_S_B()
-        lSc = mercury_234.get_S_C()
-        lHz = mercury_234.get_frequency()
+        Ua = mercury_234.get_voltage_A()
+        Ub = mercury_234.get_voltage_B()
+        Uc = mercury_234.get_voltage_C()
+        Ia = mercury_234.get_current_A()
+        Ib = mercury_234.get_current_B()
+        Ic = mercury_234.get_current_C()
+        P = mercury_234.get_P()
+        Pa = mercury_234.get_P_A()
+        Pb = mercury_234.get_P_B()
+        Pc = mercury_234.get_P_C()
+        Qa = mercury_234.get_Q_A()
+        Qb = mercury_234.get_Q_B()
+        Qc = mercury_234.get_Q_C()
+        Sa = mercury_234.get_S_A()
+        Sb = mercury_234.get_S_B()
+        Sc = mercury_234.get_S_C()
+        Hz = mercury_234.get_frequency()
 #        Tcase = mercury_234.get_temp()
         lPcd = mercury_234.get_active_energy_current_day()
-        if lUa != 'crc_false' and abs(lUa - Ua) < 30:
-                Ua = lUa
-                fooUa = False
-        else:
-            if fooUa:
-                Ua = lUa
-                fooUa = False
-            fooUa = True
-            time.sleep(5)
-        if lUb != 'crc_false' and abs(lUb - Ub) < 30:
-                Ub = lUb
-                fooUb = False
-        else:
-            if fooUb:
-                Ub = lUb
-                fooUb = False
-            fooUb = True
-            time.sleep(5)
-        if lUc != 'crc_false' and abs(lUc - Uc) < 30:
-                Uc = lUc
-                fooUc = False
-        else:
-            if fooUc:
-                Uc = lUc
-                fooUc = False
-            fooUc = True
-            time.sleep(5)
-
-        if lIa != 'crc_false' and abs(lIa - Ia) < 5:
-                Ia = lIa
-                fooIa = False
-        else:
-            if fooIa:
-                Ia = lIa
-                fooIa = False
-            fooIa = True
-            time.sleep(5)
-        if lIb != 'crc_false' and abs(lIb - Ib) < 5:
-                Ib = lIb
-                fooIb = False
-        else:
-            if fooIb:
-                Ib = lIb
-                fooIb = False
-            fooIb = True
-            time.sleep(5)
-        if lIc != 'crc_false' and abs(lIc - Ic) < 5:
-                Ic = lIc
-                fooIc = False
-        else:
-            if fooIc:
-                Ic = lIc
-                fooIc = False
-            fooIc = True
-            time.sleep(5)
-
-        if lPa != 'crc_false' and abs(lPa - Pa) < 200:
-                Pa = lPa
-                fooPa = False
-        else:
-            if fooPa:
-                Pa = lPa
-                fooPa = False
-            fooPa = True
-            time.sleep(5)
-        if lPb != 'crc_false' and abs(lPb - Pb) < 200:
-                Pb = lPb
-                fooPb = False
-        else:
-            if fooPb:
-                Pb = lPb
-                fooPb = False
-            fooPb = True
-            time.sleep(5)
-        if lPc != 'crc_false' and abs(lPc - Pc) < 200:
-                Pc = lPc
-                fooPc = False
-        else:
-            if fooPc:
-                Pc = lPc
-                fooPc = False
-            fooPc = True
-            time.sleep(5)
-
-        if lQa != 'crc_false' and abs(lQa - Qa) < 400:
-                Qa = lQa
-                fooQa = False
-        else:
-            if fooQa:
-                Qa = lQa
-                fooQa = False
-            fooQa = True
-            time.sleep(5)
-        if lQb != 'crc_false' and abs(lQb - Qb) < 400:
-                Qb = lQb
-                fooQb = False
-        else:
-            if fooQb:
-                Qb = lQb
-                fooQb = False
-            fooQb = True
-            time.sleep(5)
-        if lQc != 'crc_false' and abs(lQc - Qc) < 400:
-                Qc = lQc
-                fooQc = False
-        else:
-            if fooQc:
-                Qc = lQc
-                fooQc = False
-            fooQc = True
-            time.sleep(5)            
-
-        if lSa != 'crc_false' and abs(lSa - Sa) < 1000:
-                Sa = lSa
-                fooSa = False
-        else:
-            if fooSa:
-                Sa = lSa
-                fooSa = False
-            fooSa = True
-            time.sleep(5)
-        if lSb != 'crc_false' and abs(lSb - Sb) < 1000:
-                Sb = lSb
-                fooSb = False
-        else:
-            if fooSb:
-                Sb = lSb
-                fooSb = False
-            fooSb = True
-            time.sleep(5)
-        if lSc != 'crc_false' and abs(lSc - Sc) < 1000:
-                Sc = lSc
-                fooSc = False
-        else:
-            if fooSc:
-                Sc = lSc
-                fooSc = False
-            fooSc = True
-            time.sleep(5)            
-
-        if lP != 'crc_false' and abs(lP - P) < 2000:
-                P = lP
-                fooP = False
-        else:
-            if fooP:
-                P = lP
-                fooP = False
-            fooP = True
-            time.sleep(5)
-        if lPcd != 'crc_false' and abs(lPcd - Pcd) < 10:
-                Pcd = lPcd
-                fooPcd = False
-        else:
-            if fooPcd:
-                Pcd = lPcd
-                fooPcd = False
-            fooPcd = True
-            time.sleep(5)
-        if lHz != 'crc_false' and abs(lHz - Hz) < 1:
-                Hz = lHz
-                fooHz = False
-        else:
-            if fooHz:
-                Hz = lHz
-                fooHz = False
-            fooHz = True
-            time.sleep(5)
 #        print("Ua : ", Ua, ", Ub : ", Ub, ", Uc : ", Uc)
 #        print("Ua : ", Ua)
 #        print("Ia : ", Ia, ", Ib : ", Ib, ", Ic : ", Ic)
