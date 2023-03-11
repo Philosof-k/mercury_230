@@ -504,6 +504,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Iint = int.from_bytes(bs, "big")
+            if Iint == 1330:
+                return "error"
             current_A = Iint / 1000
             return current_A
         time.sleep(5)
@@ -525,6 +527,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Iint = int.from_bytes(bs, "big")
+            if Iint == 1330:
+                return "error"
             current_B = Iint / 1000
             return current_B
         time.sleep(5)
@@ -545,6 +549,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Iint = int.from_bytes(bs, "big")
+            if Iint == 1330:
+                return "error"
             current_C = Iint / 1000
             return current_C
         time.sleep(5)
@@ -568,6 +574,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             Pint = int.from_bytes(bs, "big")
+            if Pint == 1330:
+                return "error"
             P = Pint / 100
             return P
         time.sleep(5)
@@ -591,6 +599,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             PAint = int.from_bytes(bs, "big")
+            if PAint == 1330:
+                return "error"
             PA = PAint / 100
             return PA
         time.sleep(5)
@@ -615,6 +625,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             PBint = int.from_bytes(bs, "big")
+            if PBint == 1330:
+                return "error"
             PB = PBint / 100
             return PB
         time.sleep(5)
@@ -639,6 +651,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             PCint = int.from_bytes(bs, "big")
+            if PCint == 1330:
+                return "error"
             PC = PCint / 100
             return PC
         time.sleep(5)
@@ -663,6 +677,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             Qint = int.from_bytes(bs, "big")
+            if Qint == 1330:
+                return "error"
             Q = Qint / 100
             return Q
         time.sleep(5)
@@ -686,6 +702,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             QAint = int.from_bytes(bs, "big")
+            if QAint == 1330:
+                return "error"
             QA = QAint / 100
             return QA
         time.sleep(5)
@@ -710,6 +728,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             QBint = int.from_bytes(bs, "big")
+            if QBint == 1330:
+                return "error"
             QB = QBint / 100
             return QB
         time.sleep(5)
@@ -733,6 +753,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             QCint = int.from_bytes(bs, "big")
+            if QCint == 1330:
+                return "error"
             QC = QCint / 100
             return QC
         time.sleep(5)
@@ -756,6 +778,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             Sint = int.from_bytes(bs, "big")
+            if Sint == 1330:
+                return "error"
             S = Sint / 100
             return S
         time.sleep(5)
@@ -779,6 +803,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             SAint = int.from_bytes(bs, "big")
+            if SAint == 1330:
+                return "error"
             SA = SAint / 100
             return SA
         time.sleep(5)
@@ -802,6 +828,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             SBint = int.from_bytes(bs, "big")
+            if SBint == 1330:
+                return "error"
             SB = SBint / 100
             return SB
         time.sleep(5)
@@ -826,6 +854,8 @@ class Mercury230:
             b3 = (outa[:-3])[-1:]
             bs = b1 + b2 + b3
             SCint = int.from_bytes(bs, "big")
+            if SCint == 1330:
+                return "error"
             SC = SCint / 100
             return SC
         time.sleep(5)
