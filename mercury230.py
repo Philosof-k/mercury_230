@@ -438,6 +438,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Vint = int.from_bytes(bs, "big")
+            if Vint == 1330:
+                return "error"
             voltage_A = Vint / 100
             return voltage_A
         time.sleep(5)
@@ -458,6 +460,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Vint = int.from_bytes(bs, "big")
+            if Vint == 1330:
+                return "error"
             voltage_B = Vint / 100
             return voltage_B
         time.sleep(5)
@@ -478,6 +482,8 @@ class Mercury230:
             b2 = (outa[:-3])[-1:]
             bs = b1 + b2
             Vint = int.from_bytes(bs, "big")
+            if Vint == 1330:
+                return "error"
             voltage_C = Vint / 100
             return voltage_C
         time.sleep(5)
