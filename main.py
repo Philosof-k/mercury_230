@@ -34,7 +34,7 @@ def on_connect(client, userdata, flags, rc):
 #        client.loop_start()
         print("connected OK Returned code=", rc)
         client.publish("power/status",payload="online", qos=0, retain=True)
-        client.publish("homeassistant/sensor/miner1/temperature1/config", "{"availability":[{"topic":"antminer/status"}],"device":{"identifiers":["antminer_to_mqtt_maner1"],"manufacturer":"Antminer","model":"S19j pro","name":"Miner1"},"device_class":"temperature","enabled_by_default":true,"json_attributes_topic":"antminer/miner1","name":"THs2 temperature","state_class":"measurement","state_topic":"antminer/miner1","unique_id":"miner1_temperature1","unit_of_measurement":"°C","value_template":"{{ value_json["STATS"][1].temp1 }}"}", 1)
+        client.publish("homeassistant/sensor/miner1/temperature1/config", "{"availability":[{"topic":"antminer/status"}],"device":{"identifiers":["antminer_to_mqtt_maner1"],"manufacturer":"Antminer","model":"S19j pro","name":"Miner1"},"device_class":"temperature","enabled_by_default":true,"json_attributes_topic":"antminer/miner1","name":"THs2 temperature","state_class":"measurement","state_topic":"antminer/miner1","unique_id":"miner1_temperature1","unit_of_measurement":"°C"", 1)
 #        logging.info("connected OK Returned code=" + str(rc))
 #        client.subscribe("gate1/reply", qos=1)
     else:
