@@ -33,6 +33,7 @@ def on_connect(client, userdata, flags, rc):
 #        client.loop_start()
 #        client.loop_start()
         print("connected OK Returned code=", rc)
+        client.publish("power/status",payload="online", qos=0, retain=True)
 #        logging.info("connected OK Returned code=" + str(rc))
 #        client.subscribe("gate1/reply", qos=1)
     else:
@@ -62,6 +63,7 @@ client = mqtt.Client("counter") #create new instance
 client.username_pw_set(mqtt_user, mqtt_pass)
 client.on_connect = on_connect
 client.on_disconnect = on_disconnect
+client.will_set("power/status", payload="offline", qos=0, retain=True)
 #client.on_subscribe = on_subscribe
 #client.on_message = on_message
 client.connect_async(mqtt_ipaddress) #connect to broker

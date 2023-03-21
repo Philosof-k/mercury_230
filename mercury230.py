@@ -171,6 +171,8 @@ class Mercury230:
             b4 = (outa[:-15])[-1:]
             bs = b1 + b2 + b3 + b4
             Pint = int.from_bytes(bs, "big")
+            if Pint == 0:
+                return "error"
             P = Pint / 1000
             return P
         time.sleep(5)
