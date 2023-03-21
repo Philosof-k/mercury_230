@@ -34,7 +34,7 @@ def on_connect(client, userdata, flags, rc):
 #        client.loop_start()
         print("connected OK Returned code=", rc)
         client.publish("power/status",payload="online", qos=0, retain=True)
-        client.publish("homeassistant/sensor/miner1/temperature1/config", "{"availability":[{"topic":"antminer/status"}],", 1)
+        client.publish("homeassistant/sensor/miner1/temperature1/config", '{"availability":[{"topic":"antminer/status"}],', 1)
 #        logging.info("connected OK Returned code=" + str(rc))
 #        client.subscribe("gate1/reply", qos=1)
     else:
