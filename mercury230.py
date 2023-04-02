@@ -178,6 +178,46 @@ class Mercury230:
         time.sleep(5)
         return "crc_false"
 
+    def get_active_energy_current_abc(self):
+        chunk = self.addr
+        chunk += b'\x05'  # чтение массивов накопленной энергии
+        chunk += b'\x60'  # на начало текущих суток
+        chunk += b'\x00'  # по тарифу№ (по сумме тарифов - 0)
+        chunk = self.crc16(chunk)
+        ser = self.open_port(self.ipaddress1, self.ipport1)
+        ser.timeout = 0.3
+        ser.write(chunk)
+#        print(chunk)
+#        time.sleep(100 / 1000)
+        outa = ser.read(15)
+        if outa[-2:] == self.crc16(outa[:-2])[-2:]:
+            ba1 = (outa[:-12])[-1:]
+            ba2 = (outa[:-13])[-1:]
+            ba3 = (outa[:-10])[-1:]
+            ba4 = (outa[:-11])[-1:]
+            bas = ba1 + ba2 + ba3 + ba4
+            Paint = int.from_bytes(bas, "big")
+            bb1 = (outa[:-8])[-1:]
+            bb2 = (outa[:-9])[-1:]
+            bb3 = (outa[:-6])[-1:]
+            bb4 = (outa[:-7])[-1:]
+            bbs = bb1 + bb2 + bb3 + bb4
+            Pbint = int.from_bytes(bbs, "big")
+            bc1 = (outa[:-4])[-1:]
+            bc2 = (outa[:-5])[-1:]
+            bc3 = (outa[:-2])[-1:]
+            bc4 = (outa[:-3])[-1:]
+            bcs = bc1 + bc2 + bc3 + bc4
+            Pcint = int.from_bytes(bcs, "big")
+#            if Pint == 0:
+#                return "error"
+            Pa = Paint / 1000
+            Pb = Pbint / 1000
+            Pc = Pcint / 1000
+            return Pa, Pb, Pc
+        time.sleep(5)
+        return "crc_false"
+
     def get_active_energy_last_day(self):
         chunk = self.addr
         chunk += b'\x05'  # чтение массивов накопленной энергии

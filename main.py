@@ -50,7 +50,7 @@ def on_connect(client, userdata, flags, rc):
         client.publish("homeassistant/sensor/powercounter/sb/config", '{"availability":[{"topic":"power/status"}],"device":{"identifiers":["mercury230"],"manufacturer":"Mercury","model":"Mercury230","name":"Counter"},"device_class":"apparent_power","enabled_by_default":true,"json_attributes_topic":"power/counter","name":"Counter Sb","state_class":"measurement","state_topic":"power/counter","unique_id":"p_counter_sb","unit_of_measurement":"VA","value_template":"{{ value_json.Sb }}"}', 1)
         client.publish("homeassistant/sensor/powercounter/sc/config", '{"availability":[{"topic":"power/status"}],"device":{"identifiers":["mercury230"],"manufacturer":"Mercury","model":"Mercury230","name":"Counter"},"device_class":"apparent_power","enabled_by_default":true,"json_attributes_topic":"power/counter","name":"Counter Sc","state_class":"measurement","state_topic":"power/counter","unique_id":"p_counter_sc","unit_of_measurement":"VA","value_template":"{{ value_json.Sc }}"}', 1)
         client.publish("homeassistant/sensor/powercounter/p/config", '{"availability":[{"topic":"power/status"}],"device":{"identifiers":["mercury230"],"manufacturer":"Mercury","model":"Mercury230","name":"Counter"},"device_class":"power","enabled_by_default":true,"json_attributes_topic":"power/counter","name":"Counter P","state_class":"measurement","state_topic":"power/counter","unique_id":"p_counter_p","unit_of_measurement":"W","value_template":"{{ value_json.P }}"}', 1)
-        client.publish("homeassistant/sensor/powercounter/pcd/config", '{"availability":[{"topic":"power/status"}],"device":{"identifiers":["mercury230"],"manufacturer":"Mercury","model":"Mercury230","name":"Counter"},"device_class":"energy","enabled_by_default":true,"json_attributes_topic":"power/counter","name":"Counter Pcd","state_class":"measurement","state_topic":"power/counter","unique_id":"p_counter_pcd","unit_of_measurement":"kWh","value_template":"{{ value_json.Pcd }}"}', 1)
+        client.publish("homeassistant/sensor/powercounter/pcd/config", '{"availability":[{"topic":"power/status"}],"device":{"identifiers":["mercury230"],"manufacturer":"Mercury","model":"Mercury230","name":"Counter"},"device_class":"energy","enabled_by_default":true,"json_attributes_topic":"power/counter","name":"Counter Pcd","state_class":"total_increasing","state_topic":"power/counter","unique_id":"p_counter_pcd","unit_of_measurement":"kWh","value_template":"{{ value_json.Pcd }}"}', 1)
         client.publish("homeassistant/sensor/powercounter/hz/config", '{"availability":[{"topic":"power/status"}],"device":{"identifiers":["mercury230"],"manufacturer":"Mercury","model":"Mercury230","name":"Counter"},"device_class":"frequency","enabled_by_default":true,"json_attributes_topic":"power/counter","name":"Counter Hz","state_class":"measurement","state_topic":"power/counter","unique_id":"p_counter_hz","unit_of_measurement":"Hz","value_template":"{{ value_json.Hz }}"}', 1)
 #        logging.info("connected OK Returned code=" + str(rc))
 #        client.subscribe("gate1/reply", qos=1)
@@ -112,6 +112,7 @@ def cycle_read():
         Hz = mercury_234.get_frequency()
 #        Tcase = mercury_234.get_temp()
         Pcd = mercury_234.get_active_energy_current_day()
+        Pca, Pcb, Pcc = mercury_234.get_active_energy_current_abc()
 #        print("Ua : ", Ua, ", Ub : ", Ub, ", Uc : ", Uc)
 #        print("Ua : ", Ua)
 #        print("Ia : ", Ia, ", Ib : ", Ib, ", Ic : ", Ic)
@@ -127,9 +128,9 @@ def cycle_read():
         json_string3 = '"P": "' + str(P) + '", "Pa": "' + str(Pa) + '", "Pb": "' + str(Pb) + '", "Pc": "' + str(Pc) + '"'
         json_string4 = '"Qa": "' + str(Qa) + '", "Qb": "' + str(Qb) + '", "Qc": "' + str(Qc) + '"'
         json_string5 = '"Sa": "' + str(Sa) + '", "Sb": "' + str(Sb) + '", "Sc": "' + str(Sc) + '"'
-        json_string6 = '"Hz": "' + str(Hz) + '"'
-        json_string7 = '"Pcd": "' + str(Pcd) + '"'
-        json_string_end = '{' + json_string1 + ',' + json_string2 + ',' + json_string3 + ',' + json_string4 + ',' + json_string5 + ',' + json_string6 + ',' + json_string7 + '}'
+#        json_string6 = '"Hz": "' + str(Hz) + '"'
+        json_string6 = '"Pcd": "' + str(Pcd) + '", "Pca": "' + str(Pca) + '", "Pcb": "' + str(Pcb) + '", "Pcc": "' + str(Pcc) + '", "Hz": "' + str(Hz) + '"'
+        json_string_end = '{' + json_string1 + ',' + json_string2 + ',' + json_string3 + ',' + json_string4 + ',' + json_string5 + ',' + json_string6 + '}'
 #        json_object = json.loads(json_string)
 #        print(json_string1)
 #        print(json_string2)
